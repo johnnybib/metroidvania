@@ -9,14 +9,14 @@ public abstract class EntityController : MonoBehaviour
     
     [HideInInspector]
     public Animator anim;
-    public float ACCELSLOWDOWN;
-    public float ACCELX;
-	public float STOPTHRESH;
-    public float SLOWDOWNTHRES;
-	public float MAXSPEEDX;
-    public float JUMPFORCE;
-    public float RAYCASTDOWNDIST;
-
+    public float ACCELSLOWDOWN = 120;
+    public float ACCELX = 50;
+	public float STOPTHRESH = 1;
+    public float SLOWDOWNTHRES = 2;
+	public float MAXSPEEDX = 10;
+    public float JUMPFORCE  = 350;
+    public float RAYCASTDOWNDIST = 0.8f;
+    public float HEALTH = 10;
     public bool isFacingRight = false;
 
     public void Stop()
@@ -65,6 +65,17 @@ public abstract class EntityController : MonoBehaviour
         {
             Debug.DrawRay(currentPos, transform.TransformDirection(Vector3.down) * RAYCASTDOWNDIST, Color.red);
             return true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Damage")
+        {
+            AttackController attackController = col.gameObject.GetComponent<AttackController>();
+            float damage = attackController.GetDamage();
+            HEALTH -= damage;
+            Debug.Log(HEALTH);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAerialState : EnemyState
 {
-     public override EnemyState HandleInput(EnemyController e, EnemyInput i)
+     public override EnemyState HandleInput(EntityController e, EntityInput i)
     {
         e.CheckFlip(i.horz);
         //Do nothing
@@ -31,7 +31,7 @@ public class EnemyAerialState : EnemyState
         return null;
     }
 
-    public override EnemyState Update(EnemyController e, EnemyInput i)
+    public override EnemyState Update(EntityController e, EntityInput i)
     {
         return null;
     }

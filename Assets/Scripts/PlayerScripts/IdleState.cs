@@ -5,14 +5,14 @@ using UnityEngine;
 public class IdleState : GroundedState
 {
 
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         //Do nothing
         //Pass to GroundedState
         return base.HandleInput(p, i);
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         Debug.Log("Idle");
         if(Mathf.Abs(p.body.velocity.x) <= p.SLOWDOWNTHRES && Mathf.Abs(p.body.velocity.x) > p.STOPTHRESH)

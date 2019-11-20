@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyGroundedState
 {
-    public override EnemyState HandleInput(EnemyController e, EnemyInput i)
+    public override EnemyState HandleInput(EntityController e, EntityInput i)
     {
         //Do nothing
         //Pass to GroundedState
         return base.HandleInput(e, i);
     }
 
-    public override EnemyState Update(EnemyController e, EnemyInput i)
+    public override EnemyState Update(EntityController e, EntityInput i)
     {
         if(Mathf.Abs(e.body.velocity.x) <= e.SLOWDOWNTHRES && Mathf.Abs(e.body.velocity.x) > e.STOPTHRESH)
         {
@@ -24,7 +24,7 @@ public class EnemyIdleState : EnemyGroundedState
         return null;
     }
 
-    public override void StateEnter(EnemyController e)
+    public override void StateEnter(EntityController e)
     {
         e.ResetStates();
         e.anim.SetBool("idle", true);

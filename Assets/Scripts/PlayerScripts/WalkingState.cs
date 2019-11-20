@@ -5,20 +5,20 @@ using UnityEngine;
 public class WalkingState : GroundedState
 {
 
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         p.CheckFlip(i.horz);
 
         if(Mathf.Abs(i.horz) > 0)
         {
-            p.body.AddForce(p.transform.right * Mathf.Sign(p.transform.localScale.x) * p.ACCELX);
+            p.body.AddForce(p.transform.right * Mathf.Sign(i.horz) * p.ACCELX);
         }
 
         //Pass to GroundedState 
         return base.HandleInput(p, i);
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         Debug.Log("Walking");
         p.anim.SetFloat("walkingSpeed", p.body.velocity.x/p.MAXSPEEDX);

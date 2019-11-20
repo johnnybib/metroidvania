@@ -6,7 +6,7 @@ public class JumpSquatState : PlayerState
 {
 	private const int JUMPSQUATFRAMES = 4;
     private int jumpSquatFrameCounter = 0;
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         //Do nothing
         if(i.jumpHeld)
@@ -20,7 +20,7 @@ public class JumpSquatState : PlayerState
         return null;
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         Debug.Log("JumpSquat");
         return null;

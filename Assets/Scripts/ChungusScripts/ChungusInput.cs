@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyInput
+public class ChungusInput : EntityInput
 {
-    public float horz = 1;
-    public float vert;
-    public bool jump;
 
     private float leftTimer = 1;
     private float timeElapsed = 0;
 
-    public EnemyInput()
+    public ChungusInput()
     {
-
+        horz = 1;
     }
-    public void GetInput()
+    
+    public override void GetInput()
     {
         if(timeElapsed >= leftTimer)
         {

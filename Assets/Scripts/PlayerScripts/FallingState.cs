@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FallingState : AerialState
 {
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         //Do nothing
         return base.HandleInput(p, i);
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
         Debug.Log("Falling");
         if(p.RayCastGround())

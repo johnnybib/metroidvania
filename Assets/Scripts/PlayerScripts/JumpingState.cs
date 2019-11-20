@@ -10,13 +10,13 @@ public class JumpingState : AerialState
     {
         this.addedJumpForce = addedJumpForce;
     }
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         //Do nothing
         return base.HandleInput(p, i);
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
         Debug.Log("Jumping");
 

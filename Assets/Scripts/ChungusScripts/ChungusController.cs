@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : EntityController
+public class ChungusController : EntityController
 {
 
     private EnemyState state;
-
-    [HideInInspector]
-    public EnemyInput input;
+    private ChungusInput input;
 
 
     // Start is called before the first frame update
@@ -17,7 +15,7 @@ public class EnemyController : EntityController
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         state = new EnemyIdleState();
-        input = new EnemyInput();
+        input = new ChungusInput();
     }
     void Update()
     {

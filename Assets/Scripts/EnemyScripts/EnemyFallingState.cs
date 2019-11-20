@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyFallingState : EnemyAerialState
 {
-    public override EnemyState HandleInput(EnemyController e, EnemyInput i)
+    public override EnemyState HandleInput(EntityController e, EntityInput i)
     {
         //Do nothing
         return base.HandleInput(e, i);
     }
 
-    public override EnemyState Update(EnemyController e, EnemyInput i)
+    public override EnemyState Update(EntityController e, EntityInput i)
     {        
         if(e.RayCastGround())
         {
@@ -27,7 +27,7 @@ public class EnemyFallingState : EnemyAerialState
         return null;
     }
 
-    public override void StateEnter(EnemyController e)
+    public override void StateEnter(EntityController e)
     {
         e.ResetStates();
         e.anim.SetBool("falling", true);

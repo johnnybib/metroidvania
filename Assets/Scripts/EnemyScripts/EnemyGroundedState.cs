@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGroundedState : EnemyState
 {
-    public override EnemyState HandleInput(EnemyController e, EnemyInput i)
+    public override EnemyState HandleInput(EntityController e, EntityInput i)
     {
         if(!e.RayCastGround())
         {
@@ -20,7 +20,7 @@ public class EnemyGroundedState : EnemyState
         }
     }
 
-    public override EnemyState Update(EnemyController e, EnemyInput i)
+    public override EnemyState Update(EntityController e, EntityInput i)
     {
         return null;
     }

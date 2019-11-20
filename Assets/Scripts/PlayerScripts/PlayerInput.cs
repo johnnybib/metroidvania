@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerInput
+public class PlayerInput : EntityInput
 {
-    public float horz;
-    public float vert;
 
     public bool jumpPressed;
     public bool jumpHeld;
     public bool jumpReleased;
+    public bool attackPressed;
 
-    public ControllerInput()
-    {
-    }
-
-    public void GetInput()
+    public override void GetInput()
     {
         horz = Input.GetAxisRaw("Horizontal");
         vert = Input.GetAxisRaw("Vertical");
         jumpPressed = Input.GetButtonDown("Jump");
         jumpHeld = Input.GetButton("Jump");
         jumpReleased = Input.GetButtonUp("Jump");
+        attackPressed = Input.GetButtonDown("Attack");
     }
 }

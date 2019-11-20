@@ -5,7 +5,7 @@ using UnityEngine;
 public class AerialState : PlayerState
 {
     // Start is called before the first frame update
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
         p.CheckFlip(i.horz);
         //Do nothing
@@ -32,7 +32,7 @@ public class AerialState : PlayerState
         return null;
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         return null;
     }

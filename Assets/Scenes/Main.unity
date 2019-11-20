@@ -278,10 +278,10 @@ MonoBehaviour:
   ACCELX: 50
   STOPTHRESH: 1
   SLOWDOWNTHRES: 2
-  MAXSPEEDX: 3
-  JUMPFORCE: 0
+  MAXSPEEDX: 5
+  JUMPFORCE: 350
   RAYCASTDOWNDIST: 0.8
-  isFacingRight: 0
+  isFacingRight: 1
 --- !u!1 &620938593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1021,8 @@ MonoBehaviour:
   JUMPFORCE: 350
   RAYCASTDOWNDIST: 0.8
   isFacingRight: 1
+  attackHitbox: {fileID: 7494068702651556498, guid: c970510dbc8279c4d93245e75c17722b,
+    type: 3}
   JUMPSQUATFORCE: 100
 --- !u!95 &1408030581
 Animator:

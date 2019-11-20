@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GroundedState : PlayerState
 {
-    public override PlayerState HandleInput(PlayerController p, ControllerInput i)
-    {
-        if(!p.RayCastGround())
+    public override PlayerState HandleInput(PlayerController p, PlayerInput i)
+    {    
+        if(i.attackPressed)
+        {
+            return new SlashState(this);
+        }
+        else if(!p.RayCastGround()) 
         {
             return new FallingState();
         }
-        if(i.jumpPressed)
+        else if(i.jumpPressed)
         {
             return new JumpSquatState();
         }
@@ -24,7 +28,7 @@ public class GroundedState : PlayerState
         }
     }
 
-    public override PlayerState Update(PlayerController p, ControllerInput i)
+    public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         return null;
     }
