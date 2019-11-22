@@ -36,17 +36,17 @@ public class PlayerController : EntityController
         PlayerState newState1 = state.HandleInput(this, input);
         PlayerState newState2 = state.Update(this, input);
 
-        if(newState2 == null)
+        if(newState1 == null)
         {
-            if(newState1!=null)
+            if(newState2!=null)
             {
-                state = newState1;
+                state = newState2;
                 state.StateEnter(this);
             }
         }
         else
         {
-            state = newState2;
+            state = newState1;
             state.StateEnter(this);
 
         }

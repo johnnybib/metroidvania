@@ -10,29 +10,29 @@ public class ChungusInput : EntityInput
 
     public ChungusInput()
     {
-        horz = 1;
+        horz = 0;
     }
     
     public override void GetInput()
     {
-        if(timeElapsed >= leftTimer)
-        {
-            int randNum = Random.Range(0, 3);
-            if(randNum == 0)
-            {
-                horz = 1;
-            }
-            else if(randNum == 1)
-            {
-                horz = -1;
-            }
-            else
-            {
-                horz = 0;
-            }
+        // if(timeElapsed >= leftTimer)
+        // {
+        //     int randNum = Random.Range(0, 3);
+        //     if(randNum == 0)
+        //     {
+        //         horz = 1;
+        //     }
+        //     else if(randNum == 1)
+        //     {
+        //         horz = -1;
+        //     }
+        //     else
+        //     {
+        //         horz = 0;
+        //     }
 
-            timeElapsed = 0;
-        }
-        timeElapsed += Time.deltaTime;
+        //     timeElapsed = 0;
+        // }
+        // timeElapsed += Time.deltaTime;
     }
 }

@@ -26,10 +26,7 @@ public class JumpingState : AerialState
             entered = false;
             p.body.AddForce(p.transform.TransformDirection(Vector3.up) * (p.JUMPFORCE + addedJumpForce));
         }
-        if(p.body.velocity.y < 0)
-        {
-            return new FallingState();
-        }
+
         return base.Update(p, i);
     }
 

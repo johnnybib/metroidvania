@@ -7,6 +7,10 @@ public class AerialState : PlayerState
     // Start is called before the first frame update
     public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
+        if(i.attackPressed)
+        {
+            return new SlashState(this);
+        }
         p.CheckFlip(i.horz);
         //Do nothing
         if(Mathf.Abs(i.horz) > 0)
@@ -34,6 +38,14 @@ public class AerialState : PlayerState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
+        if(p.body.velocity.y < 0)
+        {
+            return new FallingState();
+        }
+        else if(p.body.velocity.y >= 0)
+        {
+            return new UpwardsAerialState();
+        }
         return null;
     }
 

@@ -13,11 +13,11 @@ public abstract class AttackingState : PlayerState
 
     public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {    
-        return fromState.HandleInput(p, i);
+        return fromState;
     }
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
-        return fromState.Update(p, i);
+        return fromState;
     }
 }

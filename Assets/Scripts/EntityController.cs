@@ -19,6 +19,10 @@ public abstract class EntityController : MonoBehaviour
     public float HEALTH = 10;
     public bool isFacingRight = false;
 
+    public float KNOCKBACK = 10f;
+
+    public bool changedState = false;
+
     public void Stop()
     {
         body.velocity = new Vector2(0, body.velocity.y);
@@ -68,14 +72,19 @@ public abstract class EntityController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(col.tag == "Damage")
+        if(other.tag == "Damage")
         {
-            AttackController attackController = col.gameObject.GetComponent<AttackController>();
+            AttackController attackController = other.gameObject.GetComponent<AttackController>();
             float damage = attackController.GetDamage();
             HEALTH -= damage;
+
+            Knockback(other.transform.position - transform.position);
+
             Debug.Log(HEALTH);
         }
     }
+
+    public virtual void Knockback(Vector3 force) {}
 }

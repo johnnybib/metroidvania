@@ -19,24 +19,31 @@ public class ChungusController : EntityController
     }
     void Update()
     {
+        changedState = false;
         input.GetInput();
         EnemyState newState1 = state.HandleInput(this, input);
         EnemyState newState2 = state.Update(this, input);
 
-        if(newState2 == null)
+        if(newState2 != null && !changedState)
         {
-            if(newState1!=null)
-            {
-                state = newState1;
-                state.StateEnter(this);
-            }
-        }
-        else
-        {
+            changedState = true;
             state = newState2;
             state.StateEnter(this);
 
         }
+        else if(newState1!=null && !changedState)
+        {
+            changedState = true;
+            state = newState1;
+            state.StateEnter(this);
+        }
+    }
+
+    public override void Knockback(Vector3 force)
+    {
+        changedState = true;
+        state = new EnemyKnockbackState(force);
+        state.StateEnter(this);
     }
 }
 

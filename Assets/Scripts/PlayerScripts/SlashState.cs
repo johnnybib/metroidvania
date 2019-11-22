@@ -11,6 +11,7 @@ public class SlashState : AttackingState
 
     public override void StateEnter(PlayerController p)
     {
+        Debug.Log("Attack");
         p.ResetStates();
         p.anim.SetBool("slash", true);
         Vector3 pos = p.transform.position;

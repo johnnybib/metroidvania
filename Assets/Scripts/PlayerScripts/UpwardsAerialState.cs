@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingState : AerialState
+public class UpwardsAerialState : AerialState
 {
     public override PlayerState HandleInput(PlayerController p, PlayerInput i)
     {
@@ -12,25 +12,13 @@ public class FallingState : AerialState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
-        Debug.Log("Falling");
-        if(p.RayCastGround())
-        {
-            if(Mathf.Abs(i.horz) > 0)
-            {
-                return new WalkingState();
-            }
-            else
-            {
-                return new IdleState();
-            }
-        }
+        Debug.Log("Moving Up");
 
         return base.Update(p, i);
     }
-
     public override void StateEnter(PlayerController p)
     {
         p.ResetStates();
-        p.anim.SetBool("falling", true);
+        p.anim.SetBool("movingUp", true);
     }
 }
