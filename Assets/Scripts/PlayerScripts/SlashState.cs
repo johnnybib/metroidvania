@@ -18,6 +18,7 @@ public class SlashState : AttackingState
         pos.x += 1 * (p.isFacingRight ? 1 : -1);
         GameObject attack = GameObject.Instantiate(p.attackHitbox, pos, Quaternion.identity, p.gameObject.transform);
         attack.SendMessage("SetDamage", p.DAMAGE);
+        attack.SendMessage("SetKnockback", p.attackKnockbacks["Slash"]);
         attack.SendMessage("SetDuration", p.attackDurations["Slash"]);
     }
 }

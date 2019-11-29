@@ -7,6 +7,8 @@ public class AttackController : MonoBehaviour
     private float duration = 0.5f;
     private float elapsedTime = 0;
     private float damage = 0;
+    private float knockback = 0;
+
     
     // Start is called before the first frame update
     void Start()
@@ -33,9 +35,19 @@ public class AttackController : MonoBehaviour
     {
         this.duration = duration;
     }
+
+    public void SetKnockback(float knockback)
+    {
+        this.knockback = knockback;
+    }
     
     public float GetDamage()
     {
         return damage;
+    }
+
+    public float GetKnockback()
+    {
+        return knockback;
     }
 }

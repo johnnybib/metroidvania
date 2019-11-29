@@ -10,6 +10,7 @@ public class PlayerController : EntityController
     public float JUMPSQUATFORCE;
     public float DAMAGE = 1;
     public Dictionary<string, float> attackDurations;
+    public Dictionary<string, float> attackKnockbacks;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class PlayerController : EntityController
         input = new PlayerInput();
         state = new IdleState();
         attackDurations = new Dictionary<string, float>();
+        attackKnockbacks = new Dictionary<string, float>();
+        attackKnockbacks.Add("Slash", 200f);
         AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
         foreach(AnimationClip clip in clips)
         {

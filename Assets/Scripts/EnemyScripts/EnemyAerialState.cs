@@ -16,17 +16,17 @@ public class EnemyAerialState : EnemyState
                 e.body.velocity = new Vector2(e.MAXSPEEDX * Mathf.Sign(e.body.velocity.x), e.body.velocity.y);
             }
         }
-        else
-        {
-            if(Mathf.Abs(e.body.velocity.x) <= e.SLOWDOWNTHRES && Mathf.Abs(e.body.velocity.x) > e.STOPTHRESH)
-            {
-                e.body.AddForce(new Vector2 (Mathf.Sign(e.body.velocity.x), 0) * -e.ACCELSLOWDOWN);
-            }
-            else
-            {
-                e.Stop();
-            }
-        }
+        // else
+        // {
+        //     if(Mathf.Abs(e.body.velocity.x) <= e.SLOWDOWNTHRES && Mathf.Abs(e.body.velocity.x) > e.STOPTHRESH)
+        //     {
+        //         e.body.AddForce(new Vector2 (Mathf.Sign(e.body.velocity.x), 0) * -e.ACCELSLOWDOWN);
+        //     }
+        //     else
+        //     {
+        //         e.Stop();
+        //     }
+        // }
 
         return null;
     }

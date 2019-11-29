@@ -14,7 +14,7 @@ public class IdleState : GroundedState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
-        Debug.Log("Idle");
+        // Debug.Log("Idle");
         if(Mathf.Abs(p.body.velocity.x) <= p.SLOWDOWNTHRES && Mathf.Abs(p.body.velocity.x) > p.STOPTHRESH)
         {
             p.body.AddForce(new Vector2 (Mathf.Sign(p.body.velocity.x), 0) * -p.ACCELSLOWDOWN);

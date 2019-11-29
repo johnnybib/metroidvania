@@ -18,9 +18,6 @@ public abstract class EntityController : MonoBehaviour
     public float RAYCASTDOWNDIST = 0.8f;
     public float HEALTH = 10;
     public bool isFacingRight = false;
-
-    public float KNOCKBACK = 10f;
-
     public bool changedState = false;
 
     public void Stop()
@@ -80,11 +77,11 @@ public abstract class EntityController : MonoBehaviour
             float damage = attackController.GetDamage();
             HEALTH -= damage;
 
-            Knockback(other.transform.position - transform.position);
+            Knockback(other.gameObject.GetComponentInParent(typeof(Transform)).transform.position - transform.position, attackController.GetKnockback());
 
             Debug.Log(HEALTH);
         }
     }
 
-    public virtual void Knockback(Vector3 force) {}
+    public virtual void Knockback(Vector3 dir, float knockback) {}
 }

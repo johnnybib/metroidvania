@@ -39,10 +39,10 @@ public class ChungusController : EntityController
         }
     }
 
-    public override void Knockback(Vector3 force)
+    public override void Knockback(Vector3 dir, float knockback)
     {
         changedState = true;
-        state = new EnemyKnockbackState(force);
+        state = new EnemyKnockbackState(dir, knockback);
         state.StateEnter(this);
     }
 }
