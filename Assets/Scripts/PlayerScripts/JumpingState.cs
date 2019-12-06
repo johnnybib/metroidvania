@@ -18,7 +18,7 @@ public class JumpingState : AerialState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
-        Debug.Log("Jumping");
+        // Debug.Log("Jumping");
 
         //Run once
         if(entered)

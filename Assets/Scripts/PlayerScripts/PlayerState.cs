@@ -8,4 +8,6 @@ public abstract class PlayerState
     public virtual PlayerState Update(PlayerController p, PlayerInput i) {return null;}
     public virtual void StateEnter(PlayerController p){}
 
+    public virtual string GetStateID(){return null;}
+
 }

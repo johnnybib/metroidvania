@@ -16,6 +16,11 @@ public class ChungusController : EntityController
         anim = GetComponent<Animator>();
         state = new EnemyIdleState();
         input = new ChungusInput();
+        AttackController attackController = gameObject.GetComponentInChildren<AttackController>();
+        attackController.SetDamage(1);
+        attackController.SetPersistent();
+        attackController.SetKnockback(250f);
+        base.Start();
     }
     void Update()
     {

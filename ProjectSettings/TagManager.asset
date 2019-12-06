@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Damage
+  - Entity
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1857932551
+    locked: 0
+  - name: UI
+    uniqueID: 1961984255
     locked: 0

@@ -32,7 +32,7 @@ public class EnemyKnockbackState : EnemyState
             Vector3 knockbackForce = dir;
             knockbackForce.y = 1 * knockback;
             knockbackForce.x = -Mathf.Sign(knockbackForce.x) * knockback;
-            Debug.Log(knockbackForce);
+            // Debug.Log(knockbackForce);
             p.body.AddForce(knockbackForce);
         }
         knockBackFrameCounter++;

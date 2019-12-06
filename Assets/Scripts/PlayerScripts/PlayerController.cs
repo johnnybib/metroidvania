@@ -32,26 +32,37 @@ public class PlayerController : EntityController
                     break;
             }
         }
+        base.Start();
     }
     void Update()
     {
+        changedState = false;
         input.GetInput();
         PlayerState newState1 = state.HandleInput(this, input);
         PlayerState newState2 = state.Update(this, input);
 
-        if(newState1 == null)
+        if(newState1 != null && !changedState)
         {
-            if(newState2!=null)
-            {
-                state = newState2;
-                state.StateEnter(this);
-            }
-        }
-        else
-        {
+            changedState = true;
             state = newState1;
             state.StateEnter(this);
 
+        }
+        else if(newState2 !=null && !changedState)
+        {
+            changedState = true;
+            state = newState2;
+            state.StateEnter(this);
+        }
+    }
+
+    public override void Knockback(Vector3 dir, float knockback)
+    {
+        if(state.GetStateID() != "KnockbackState")
+        {
+            changedState = true;
+            state = new KnockbackState(dir, knockback);
+            state.StateEnter(this);
         }
     }
 }

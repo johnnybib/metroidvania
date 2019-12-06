@@ -12,7 +12,7 @@ public class FallingState : AerialState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
-        Debug.Log("Falling");
+        // Debug.Log("Falling");
         if(p.RayCastGround())
         {
             if(Mathf.Abs(i.horz) > 0)

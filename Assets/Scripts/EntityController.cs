@@ -9,6 +9,9 @@ public abstract class EntityController : MonoBehaviour
     
     [HideInInspector]
     public Animator anim;
+
+    [HideInInspector]
+    public HealthBarController healthBar;
     public float ACCELSLOWDOWN = 120;
     public float ACCELX = 50;
 	public float STOPTHRESH = 1;
@@ -16,10 +19,17 @@ public abstract class EntityController : MonoBehaviour
 	public float MAXSPEEDX = 10;
     public float JUMPFORCE  = 350;
     public float RAYCASTDOWNDIST = 0.8f;
-    public float HEALTH = 10;
+    public float MAXHEALTH = 10;
+    public float HEALTH;
+
     public bool isFacingRight = false;
     public bool changedState = false;
 
+    public virtual void Start()
+    {
+        healthBar = transform.GetComponentInChildren<HealthBarController>();
+        HEALTH = MAXHEALTH;
+    }
     public void Stop()
     {
         body.velocity = new Vector2(0, body.velocity.y);
@@ -68,19 +78,14 @@ public abstract class EntityController : MonoBehaviour
             return true;
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    public void TakeHit(Vector3 otherPos, float damage, float knockback)
     {
-        if(other.tag == "Damage")
-        {
-            AttackController attackController = other.gameObject.GetComponent<AttackController>();
-            float damage = attackController.GetDamage();
-            HEALTH -= damage;
+        HEALTH -= damage;
+        healthBar.UpdateHealth(HEALTH, MAXHEALTH);
 
-            Knockback(other.gameObject.GetComponentInParent(typeof(Transform)).transform.position - transform.position, attackController.GetKnockback());
+        Knockback(otherPos - transform.position, knockback);
 
-            Debug.Log(HEALTH);
-        }
+        Debug.Log(HEALTH);
     }
 
     public virtual void Knockback(Vector3 dir, float knockback) {}

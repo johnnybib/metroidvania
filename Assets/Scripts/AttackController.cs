@@ -9,6 +9,8 @@ public class AttackController : MonoBehaviour
     private float damage = 0;
     private float knockback = 0;
 
+    private bool persistent = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -19,13 +21,27 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(elapsedTime >= duration)
+        if(!persistent)
         {
-            Destroy(this.gameObject);
+            if(elapsedTime >= duration)
+            {
+                Destroy(this.gameObject);
+            }
+            elapsedTime += Time.deltaTime;
         }
-        elapsedTime += Time.deltaTime;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Entity")
+        {
+            other.gameObject.GetComponent<EntityController>().TakeHit(transform.position, damage, knockback);
+        }
+    }
+    public void SetPersistent()
+    {
+        this.persistent = true;
+    }
     public void SetDamage(float damage)
     {
         this.damage = damage;

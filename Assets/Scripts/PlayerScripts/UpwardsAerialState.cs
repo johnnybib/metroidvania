@@ -12,7 +12,7 @@ public class UpwardsAerialState : AerialState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {        
-        Debug.Log("Moving Up");
+        // Debug.Log("Moving Up");
 
         return base.Update(p, i);
     }

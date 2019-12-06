@@ -20,7 +20,7 @@ public class WalkingState : GroundedState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
-        Debug.Log("Walking");
+        // Debug.Log("Walking");
         p.anim.SetFloat("walkingSpeed", p.body.velocity.x/p.MAXSPEEDX);
         if (Mathf.Abs(p.body.velocity.x) > p.MAXSPEEDX)
         {

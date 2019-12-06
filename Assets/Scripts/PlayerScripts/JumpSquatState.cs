@@ -22,7 +22,7 @@ public class JumpSquatState : PlayerState
 
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
-        Debug.Log("JumpSquat");
+        // Debug.Log("JumpSquat");
         return null;
     }
 }
