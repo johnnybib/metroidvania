@@ -4,11 +4,13 @@ using UnityEngine;
 
 public abstract class AttackingState : PlayerState
 {
-    private PlayerState fromState;
+    public PlayerState fromState;
+    public PlayerInput i;
     private string clipName;
-    public AttackingState(PlayerState fromState)
+    public AttackingState(PlayerState fromState, PlayerInput i)
     {
         this.fromState = fromState;
+        this.i = i;
     }
 
     public override PlayerState HandleInput(PlayerController p, PlayerInput i)

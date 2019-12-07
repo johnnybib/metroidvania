@@ -13,7 +13,7 @@ public class PlayerController : EntityController
     public Dictionary<string, float> attackKnockbacks;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

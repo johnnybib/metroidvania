@@ -9,7 +9,7 @@ public class AerialState : PlayerState
     {
         if(i.attackPressed)
         {
-            return new SlashState(this);
+            return new SlashState(this, i);
         }
         p.CheckFlip(i.horz);
         //Do nothing
@@ -47,6 +47,11 @@ public class AerialState : PlayerState
             return new UpwardsAerialState();
         }
         return null;
+    }
+
+    public override string GetBaseStateID()
+    {
+        return "AerialState";
     }
 
 }

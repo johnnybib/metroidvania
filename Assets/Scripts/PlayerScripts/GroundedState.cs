@@ -8,7 +8,7 @@ public class GroundedState : PlayerState
     {    
         if(i.attackPressed)
         {
-            return new SlashState(this);
+            return new SlashState(this, i);
         }
         else if(!p.RayCastGround()) 
         {
@@ -31,5 +31,10 @@ public class GroundedState : PlayerState
     public override PlayerState Update(PlayerController p, PlayerInput i)
     {
         return null;
+    }
+
+    public override string GetBaseStateID()
+    {
+        return "GroundedState";
     }
 }
